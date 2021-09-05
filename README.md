@@ -44,15 +44,25 @@ This plugin provides the type system, interfaces and services for the MQTT proto
 
 #### Components
 
-* TODO
+| Name | Description | Properties |
+| --- | --- | --- |
+| mqtt_endpoint | | payload |
+| mqtt_topic | | topic<br>mode |
 
 #### Entity Types
 
-* TODO
+| Name | Description | Components | Properties |
+| --- | --- | --- | --- |
+| mqtt_broker | | | hostname<br>port<br>send_package<br>received_package |
+| mqtt_publisher | | mqtt_endpoint | payload |
+| mqtt_subscriber | | mqtt_endpoint | payload |
 
 #### Relation Types
 
-* TODO
+| Name | Description | Components | Source Entity Type | Target Entity Type |
+| --- | --- | --- | --- | --- |
+| mqtt_publishes | | mqtt_topic | mqtt_publisher | mqtt_broker |
+| mqtt_subscribes | | mqtt_topic | mqtt_broker | mqtt_subscriber |
 
 ### Thanks to
 
@@ -65,4 +75,4 @@ This plugin provides the type system, interfaces and services for the MQTT proto
 <img align="right" width="200" height="200" src="https://raw.githubusercontent.com/aschaeffer/inexor-rgf-plugin-mqtt/main/docs/images/icon_CLion.svg">
 </a>
 
-Special thanks to `JetBrains <https://www.jetbrains.com/?from=github.com/inexorgame>`__ for providing us with CLion licenses!
+Special thanks to JetBrains for providing us with CLion licenses!
