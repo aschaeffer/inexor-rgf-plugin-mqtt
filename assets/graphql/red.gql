@@ -1,0 +1,27 @@
+mutation {
+  instances {
+    entities {
+      update(
+        id: "60f08554-1258-4347-93d2-b05c7f9b51d7",
+        properties: [
+          {
+            name: "payload",
+            value: {
+              mode: "color",
+              red: 128,
+              green: 64,
+              blue: 32,
+              gain: 100,
+              white: 255,
+              effect: 0,
+              turn: "on"
+            }
+          }
+        ]) {
+        id,
+        type {name},
+        properties
+      }
+    }
+  }
+}
