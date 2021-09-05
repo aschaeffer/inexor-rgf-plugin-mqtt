@@ -1,0 +1,115 @@
+{
+  "name": "mqtt_broker",
+  "group": "mqtt",
+  "description": "MQTT Broker",
+  "components": [
+    "flow_2d",
+    "flow_3d"
+  ],
+  "properties": [
+    {
+      "name": "hostname",
+      "data_type": "string",
+      "socket_type": "input"
+    },
+    {
+      "name": "port",
+      "data_type": "number",
+      "socket_type": "input"
+    },
+    {
+      "name": "send_package",
+      "data_type": "object",
+      "socket_type": "none"
+    },
+    {
+      "name": "received_package",
+      "data_type": "object",
+      "socket_type": "none"
+    }
+  ],
+  "extensions": [
+    {
+      "name": "palette",
+      "extension": {
+        "content": "Broker",
+        "styles":  {
+          "font-size": "12px",
+          "font-family": "Fira Code",
+          "padding": "5px"
+        }
+      }
+    },
+    {
+      "name": "shape",
+      "extension": {
+        "width": 200,
+        "socket": {
+          "width": 60,
+          "height": 30,
+          "offset": 5
+        },
+        "offset": {
+          "top": "socket.height",
+          "bottom": "socket.height"
+        },
+        "elements": {
+          "title": {
+            "show": true,
+            "type": "text",
+            "content": "element.description",
+            "position": {
+              "left": 0,
+              "top": 0,
+              "width": "shape.width",
+              "height": "socket.height"
+            },
+            "styles": {
+              "font-size": "12px",
+              "fill": "black"
+            }
+          },
+          "symbol": {
+            "show": true,
+            "type": "text",
+            "content": "MQTT Broker",
+            "position": {
+              "left": 0,
+              "top": 0,
+              "width": "shape.width",
+              "height": "shape.height"
+            },
+            "styles": {
+              "font-family": "Fira Code",
+              "font-size": "40px",
+              "fill": "fuchsia"
+            }
+          },
+          "id": {
+            "show": true,
+            "type": "text",
+            "content": "shape.id",
+            "position": {
+              "left": 0,
+              "top": "shape.height-socket.height",
+              "width": "shape.width",
+              "height": "socket.height"
+            },
+            "styles": {
+              "font-size": "9px",
+              "fill": "black"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "dublin-core",
+      "extension":{
+        "title": "MQTT Broker",
+        "subject": "MQTT Broker",
+        "creator": "Hanack"
+      }
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "mqtt_publishes",
+  "description": "Publishes packages on a topic",
+  "outbound_type": "mqtt_publisher",
+  "inbound_type": "mqtt_broker",
+  "components": [
+    "mqtt_topic"
+  ],
+  "properties": [
+  ]
+}

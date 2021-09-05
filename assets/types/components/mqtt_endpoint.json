@@ -1,0 +1,10 @@
+{
+  "name": "mqtt_endpoint",
+  "properties": [
+    {
+      "name": "payload",
+      "data_type": "any",
+      "socket_type": "none"
+    }
+  ]
+}

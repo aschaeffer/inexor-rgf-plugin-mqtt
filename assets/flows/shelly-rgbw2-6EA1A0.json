@@ -1,0 +1,555 @@
+{
+  "id": "4faf3dad-3be5-45c7-b73e-96e5855b4c7d",
+  "type": "generic_flow",
+  "name": "Shelly RGBW2 6EA1A0",
+  "description": "This flow controls the Shelly RGBW2 6EA1A0",
+  "entities": [
+    {
+      "type": "generic_flow",
+      "id": "4faf3dad-3be5-45c7-b73e-96e5855b4c7d",
+      "properties": {
+      }
+    },
+    {
+      "type": "mqtt_broker",
+      "id": "ddde5b62-e85a-4b26-bfbd-70e51c2be815",
+      "description": "mqtt://qualityland:1883",
+      "properties": {
+        "hostname": "qualityland",
+        "port": 1883,
+        "send_package": "",
+        "received_package": ""
+      }
+    },
+    {
+      "type": "mqtt_publisher",
+      "id": "a30dfda5-40bc-484d-824e-fe73519d9c04",
+      "description": "shelly1-BA66B4\nSends on/off",
+      "properties": {
+        "payload": "off",
+        "device": "shelly1-BA66B4",
+        "model": "shelly1",
+        "ip": "192.168.178.50",
+        "widget": "switch",
+        "room": "Küche",
+        "label": "Licht Küche Küchentisch"
+      }
+    },
+    {
+      "type": "mqtt_subscriber",
+      "id": "ded13f78-1ac6-43ad-a3ee-95eaa0c4bbe5",
+      "description": "shelly1-BA66B4\nReceives on/off",
+      "properties": {
+        "payload": "off",
+        "device": "shelly1-BA66B4",
+        "model": "shelly1"
+      }
+    },
+    {
+      "type": "mqtt_publisher",
+      "id": "6ed34902-e6e2-47b5-8218-023b7b7a8671",
+      "description": "shelly1-BA67F0\nSends on/off",
+      "properties": {
+        "payload": "off",
+        "device": "shelly1-BA67F0",
+        "model": "shelly1",
+        "ip": "192.168.178.51",
+        "widget": "switch",
+        "room": "Schlafzimmer",
+        "label": "Licht Schlafzimmer Hauptlicht"
+      }
+    },
+    {
+      "type": "mqtt_subscriber",
+      "id": "a3c8bdec-5e46-4caa-bce0-ca4ef97e1324",
+      "description": "shelly1-BA67F0\nReceives on/off",
+      "properties": {
+        "payload": "off",
+        "device": "shelly1-BA67F0",
+        "model": "shelly1"
+      }
+    },
+    {
+      "type": "mqtt_publisher",
+      "id": "04ca54b7-5bcb-4633-b6e4-b3bc526a16a9",
+      "description": "shelly1-BA6243\nSends on/off",
+      "properties": {
+        "payload": "off",
+        "device": "shelly1-BA6243",
+        "model": "shelly1",
+        "ip": "192.168.178.57",
+        "widget": "switch",
+        "room": "?",
+        "label": "?"
+      }
+    },
+    {
+      "type": "mqtt_subscriber",
+      "id": "03410847-01c3-4636-aa6c-5afae8e9049f",
+      "description": "shelly1-BA6243\nReceives on/off",
+      "properties": {
+        "payload": "off",
+        "device": "shelly1-BA6243",
+        "model": "shelly1"
+      }
+    },
+    {
+      "type": "mqtt_publisher",
+      "id": "26a14f83-bf85-46e5-bdfa-4c6baac82dc4",
+      "description": "shellies/shellyplug-s-51CD7C/relay/0/command",
+      "properties": {
+        "payload": "off",
+        "device": "shellyplug-s-51CD7C",
+        "model": "shellyplug-s",
+        "ip": "192.168.178.60",
+        "widget": "switch",
+        "room": "Büro",
+        "label": "Licht Büro Fenster"
+      }
+    },
+    {
+      "type": "mqtt_subscriber",
+      "id": "fdbb4cfb-f72c-4583-a567-9546bd222b2f",
+      "description": "shellyplug-s-51CD7C\nReceives on/off",
+      "properties": {
+        "payload": "off",
+        "device": "shellyplug-s-51CD7C",
+        "model": "shellyplug-s"
+      }
+    },
+    {
+      "type": "mqtt_publisher",
+      "id": "1c7aeae5-8fb0-4eba-bb4e-6726a6fb41c2",
+      "description": "shellyplug-s-51CA37",
+      "properties": {
+        "payload": "off",
+        "device": "shellyplug-s-51CA37",
+        "model": "shellyplug-s",
+        "ip": "192.168.178.62",
+        "widget": "switch",
+        "room": "Schlafzimmer",
+        "label": "Schlafzimmer Rechts"
+      }
+    },
+    {
+      "type": "mqtt_subscriber",
+      "id": "7b354c87-e127-429a-afc4-075076421645",
+      "description": "shellyplug-s-51CA37\nReceives on/off",
+      "properties": {
+        "payload": "off",
+        "device": "shellyplug-s-51CA37",
+        "model": "shellyplug-s"
+      }
+    },
+    {
+      "type": "mqtt_publisher",
+      "id": "e6e3c4ee-939f-48b5-b226-7e11b2ad7cd1",
+      "description": "shellyplug-s-51D59F",
+      "properties": {
+        "payload": "off",
+        "device": "shellyplug-s-51D59F",
+        "model": "shellyplug-s",
+        "ip": "192.168.178.63",
+        "widget": "switch",
+        "room": "Schlafzimmer",
+        "label": "Schlafzimmer Links"
+      }
+    },
+    {
+      "type": "mqtt_subscriber",
+      "id": "7e576e03-d301-4eaf-b0b9-01a44825c9bf",
+      "description": "shellyplug-s-51D59F\nReceives on/off",
+      "properties": {
+        "payload": "off",
+        "device": "shellyplug-s-51D59F",
+        "model": "shellyplug-s"
+      }
+    },
+    {
+      "type": "mqtt_publisher",
+      "id": "faa115c5-2145-4a38-9764-32ca947742f9",
+      "description": "shellyrgbw2-6623FA\nSends on/off",
+      "properties": {
+        "payload": "off",
+        "device": "shellyrgbw2-6623FA",
+        "model": "shellyrgbw2",
+        "ip": "192.168.178.70",
+        "widget": "switch",
+        "room": "Büro",
+        "label": "Licht Büro Kommode"
+      }
+    },
+    {
+      "type": "mqtt_subscriber",
+      "id": "235b4ff5-a0c6-43ad-bf4b-39ad9497f9a6",
+      "description": "shellyrgbw2-6623FA\nReceives on/off",
+      "properties": {
+        "payload": "off",
+        "device": "shellyrgbw2-6623FA",
+        "model": "shellyrgbw2"
+      }
+    },
+    {
+      "type": "mqtt_publisher",
+      "id": "158e8b1c-e0ac-403a-884d-ef01bfc070ae",
+      "description": "shellyrgbw2-6EA654\nSends on/off",
+      "properties": {
+        "payload": "off",
+        "device": "shellyrgbw2-6EA654",
+        "model": "shellyrgbw2",
+        "ip": "192.168.178.71",
+        "widget": "switch",
+        "room": "Wohnzimmer",
+        "label": "Licht Wohnzimmer Beamer"
+      }
+    },
+    {
+      "type": "mqtt_subscriber",
+      "id": "de0c2e95-03e3-4c4a-9b2d-f70025ed6f61",
+      "description": "shellyrgbw2-6EA654\nReceives on/off",
+      "properties": {
+        "payload": "off",
+        "device": "shellyrgbw2-6EA654",
+        "model": "shellyrgbw2"
+      }
+    },
+    {
+      "type": "mqtt_publisher",
+      "id": "3cb4254a-0a99-41b8-b6f4-b5dc6e13f7ff",
+      "description": "shellyrgbw2-6EA1A0\nSends on/off",
+      "properties": {
+        "payload": "off",
+        "device": "shellyrgbw2-6EA1A0",
+        "model": "shellyrgbw2",
+        "ip": "192.168.178.72",
+        "widget": "switch",
+        "room": "Wohnzimmer",
+        "label": "Licht Wohnzimmer Sofa"
+      }
+    },
+    {
+      "type": "mqtt_subscriber",
+      "id": "d5f6e205-ccc6-4b63-9675-014831ecbf3f",
+      "description": "shellyrgbw2-6EA1A0\nReceives on/off",
+      "properties": {
+        "payload": "off",
+        "device": "shellyrgbw2-6EA1A0",
+        "model": "shellyrgbw2"
+      }
+    },
+    {
+      "type": "mqtt_publisher",
+      "id": "ec2d1fef-3831-4ddc-803b-c5b4ed1beaf7",
+      "description": "shellyrgbw2-6D5D84\nSends on/off",
+      "properties": {
+        "payload": "off",
+        "device": "shellyrgbw2-6D5D84",
+        "model": "shellyrgbw2",
+        "ip": "192.168.178.73",
+        "widget": "switch",
+        "room": "Schlafzimmer",
+        "label": "Licht Schlafzimmer Kommode"
+      }
+    },
+    {
+      "type": "mqtt_subscriber",
+      "id": "dc7d6c66-b6d3-468f-aa97-70b2eabd32ef",
+      "description": "shellyrgbw2-6D5D84",
+      "properties": {
+        "payload": "off",
+        "device": "shellyrgbw2-6D5D84",
+        "model": "shellyrgbw2"
+      }
+    },
+    {
+      "type": "mqtt_publisher",
+      "id": "2ad89cea-6ea4-45d4-bbee-f156dad7cf96",
+      "description": "shellyrgbw2-6EA355\nSends on/off",
+      "properties": {
+        "payload": "off",
+        "device": "shellyrgbw2-6EA355",
+        "model": "shellyrgbw2",
+        "ip": "192.168.178.74",
+        "widget": "switch",
+        "room": "Wohnzimmer",
+        "label": "Licht Wohnzimmer Sofa Rücken"
+      }
+    },
+    {
+      "type": "mqtt_subscriber",
+      "id": "0876fb7d-c5c1-4277-9fc1-a84ae5cfa9b6",
+      "description": "shellyrgbw2-6EA355",
+      "properties": {
+        "payload": "off",
+        "device": "shellyrgbw2-6EA355",
+        "model": "shellyrgbw2"
+      }
+    },
+    {
+      "type": "mqtt_publisher",
+      "id": "60f08554-1258-4347-93d2-b05c7f9b51d7",
+      "description": "shellyrgbw2-6EA1A0\nSet",
+      "properties": {
+        "payload": {
+          "mode": "color",
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "gain": 100,
+          "white": 100,
+          "effect": 0,
+          "turn": "on"
+        },
+        "device": "shellyrgbw2-6EA1A0",
+        "model": "shellyrgbw2",
+        "widget": "rgbw",
+        "room": "Wohnzimmer",
+        "label": "Licht Wohnzimmer Set"
+      }
+    },
+    {
+      "type": "mqtt_subscriber",
+      "id": "70669d11-8c8f-11eb-8000-000000000000",
+      "description": "shellyrgbw2-6EA1A0 Status",
+      "properties": {
+        "payload": {
+          "ison": false,
+          "source": "mqtt",
+          "has_timer": false,
+          "timer_started": 0,
+          "timer_duration": 0,
+          "timer_remaining": 0,
+          "mode": "color",
+          "red": 254,
+          "green": 246,
+          "blue": 56,
+          "white": 255,
+          "gain": 0,
+          "effect": 0,
+          "power": 0.00,
+          "overpower": false
+        },
+        "device": "shellyrgbw2-6D5D84",
+        "model": "shellyrgbw2"
+      }
+    }
+  ],
+  "relations": [
+    {
+      "outbound_id": "3cb4254a-0a99-41b8-b6f4-b5dc6e13f7ff",
+      "type": "mqtt_publishes",
+      "inbound_id": "ddde5b62-e85a-4b26-bfbd-70e51c2be815",
+      "properties": {
+        "topic": "shellies/shellyrgbw2-6EA1A0/color/0/command",
+        "mode": "raw"
+      }
+    },
+    {
+      "outbound_id": "ddde5b62-e85a-4b26-bfbd-70e51c2be815",
+      "type": "mqtt_subscribes",
+      "inbound_id": "d5f6e205-ccc6-4b63-9675-014831ecbf3f",
+      "properties": {
+        "topic": "shellies/shellyrgbw2-6EA1A0/color/0",
+        "mode": "raw"
+      }
+    },
+    {
+      "outbound_id": "60f08554-1258-4347-93d2-b05c7f9b51d7",
+      "type": "mqtt_publishes",
+      "inbound_id": "ddde5b62-e85a-4b26-bfbd-70e51c2be815",
+      "properties": {
+        "topic": "shellies/shellyrgbw2-6EA1A0/color/0/set",
+        "mode": "json"
+      }
+    },
+    {
+      "outbound_id": "ddde5b62-e85a-4b26-bfbd-70e51c2be815",
+      "type": "mqtt_subscribes",
+      "inbound_id": "70669d11-8c8f-11eb-8000-000000000000",
+      "properties": {
+        "topic": "shellies/shellyrgbw2-6EA1A0/color/0/status",
+        "mode": "json"
+      }
+    },
+    {
+      "outbound_id": "2ad89cea-6ea4-45d4-bbee-f156dad7cf96",
+      "type": "mqtt_publishes",
+      "inbound_id": "ddde5b62-e85a-4b26-bfbd-70e51c2be815",
+      "properties": {
+        "topic": "shellies/shellyrgbw2-6EA355/color/0/command",
+        "mode": "raw"
+      }
+    },
+    {
+      "outbound_id": "ddde5b62-e85a-4b26-bfbd-70e51c2be815",
+      "type": "mqtt_subscribes",
+      "inbound_id": "0876fb7d-c5c1-4277-9fc1-a84ae5cfa9b6",
+      "properties": {
+        "topic": "shellies/shellyrgbw2-6EA355/color/0",
+        "mode": "raw"
+      }
+    },
+    {
+      "outbound_id": "ec2d1fef-3831-4ddc-803b-c5b4ed1beaf7",
+      "type": "mqtt_publishes",
+      "inbound_id": "ddde5b62-e85a-4b26-bfbd-70e51c2be815",
+      "properties": {
+        "topic": "shellies/shellyrgbw2-6D5D84/color/0/command",
+        "mode": "raw"
+      }
+    },
+    {
+      "outbound_id": "ddde5b62-e85a-4b26-bfbd-70e51c2be815",
+      "type": "mqtt_subscribes",
+      "inbound_id": "dc7d6c66-b6d3-468f-aa97-70b2eabd32ef",
+      "properties": {
+        "topic": "shellies/shellyrgbw2-6D5D84/color/0",
+        "mode": "raw"
+      }
+    },
+    {
+      "outbound_id": "158e8b1c-e0ac-403a-884d-ef01bfc070ae",
+      "type": "mqtt_publishes",
+      "inbound_id": "ddde5b62-e85a-4b26-bfbd-70e51c2be815",
+      "properties": {
+        "topic": "shellies/shellyrgbw2-6EA654/color/0/command",
+        "mode": "raw"
+      }
+    },
+    {
+      "outbound_id": "ddde5b62-e85a-4b26-bfbd-70e51c2be815",
+      "type": "mqtt_subscribes",
+      "inbound_id": "a3c8bdec-5e46-4caa-bce0-ca4ef97e1324",
+      "properties": {
+        "topic": "shellies/shellyrgbw2-6EA654/color/0",
+        "mode": "raw"
+      }
+    },
+    {
+      "outbound_id": "faa115c5-2145-4a38-9764-32ca947742f9",
+      "type": "mqtt_publishes",
+      "inbound_id": "ddde5b62-e85a-4b26-bfbd-70e51c2be815",
+      "properties": {
+        "topic": "shellies/shellyrgbw2-6623FA/color/0/command",
+        "mode": "raw"
+      }
+    },
+    {
+      "outbound_id": "ddde5b62-e85a-4b26-bfbd-70e51c2be815",
+      "type": "mqtt_subscribes",
+      "inbound_id": "235b4ff5-a0c6-43ad-bf4b-39ad9497f9a6",
+      "properties": {
+        "topic": "shellies/shellyrgbw2-6623FA/color/0",
+        "mode": "raw"
+      }
+    },
+    {
+      "outbound_id": "e6e3c4ee-939f-48b5-b226-7e11b2ad7cd1",
+      "type": "mqtt_publishes",
+      "inbound_id": "ddde5b62-e85a-4b26-bfbd-70e51c2be815",
+      "properties": {
+        "topic": "shellies/shellyplug-s-51D59F/relay/0/command",
+        "mode": "raw"
+      }
+    },
+    {
+      "outbound_id": "ddde5b62-e85a-4b26-bfbd-70e51c2be815",
+      "type": "mqtt_subscribes",
+      "inbound_id": "7e576e03-d301-4eaf-b0b9-01a44825c9bf",
+      "properties": {
+        "topic": "shellies/shellyplug-s-51D59F/relay/0",
+        "mode": "raw"
+      }
+    },
+    {
+      "outbound_id": "1c7aeae5-8fb0-4eba-bb4e-6726a6fb41c2",
+      "type": "mqtt_publishes",
+      "inbound_id": "ddde5b62-e85a-4b26-bfbd-70e51c2be815",
+      "properties": {
+        "topic": "shellies/shellyplug-s-51CA37/relay/0/command",
+        "mode": "raw"
+      }
+    },
+    {
+      "outbound_id": "ddde5b62-e85a-4b26-bfbd-70e51c2be815",
+      "type": "mqtt_subscribes",
+      "inbound_id": "7b354c87-e127-429a-afc4-075076421645",
+      "properties": {
+        "topic": "shellies/shellyplug-s-51CA37/relay/0",
+        "mode": "raw"
+      }
+    },
+    {
+      "outbound_id": "26a14f83-bf85-46e5-bdfa-4c6baac82dc4",
+      "type": "mqtt_publishes",
+      "inbound_id": "ddde5b62-e85a-4b26-bfbd-70e51c2be815",
+      "properties": {
+        "topic": "shellies/shellyplug-s-51CD7C/relay/0/command",
+        "mode": "raw"
+      }
+    },
+    {
+      "outbound_id": "ddde5b62-e85a-4b26-bfbd-70e51c2be815",
+      "type": "mqtt_subscribes",
+      "inbound_id": "fdbb4cfb-f72c-4583-a567-9546bd222b2f",
+      "properties": {
+        "topic": "shellies/shellyplug-s-51CD7C/relay/0",
+        "mode": "raw"
+      }
+    },
+    {
+      "outbound_id": "04ca54b7-5bcb-4633-b6e4-b3bc526a16a9",
+      "type": "mqtt_publishes",
+      "inbound_id": "ddde5b62-e85a-4b26-bfbd-70e51c2be815",
+      "properties": {
+        "topic": "shellies/shelly1-BA6243/relay/0/command",
+        "mode": "raw"
+      }
+    },
+    {
+      "outbound_id": "ddde5b62-e85a-4b26-bfbd-70e51c2be815",
+      "type": "mqtt_subscribes",
+      "inbound_id": "03410847-01c3-4636-aa6c-5afae8e9049f",
+      "properties": {
+        "topic": "shellies/shelly1-BA6243/relay/0",
+        "mode": "raw"
+      }
+    },
+    {
+      "outbound_id": "6ed34902-e6e2-47b5-8218-023b7b7a8671",
+      "type": "mqtt_publishes",
+      "inbound_id": "ddde5b62-e85a-4b26-bfbd-70e51c2be815",
+      "properties": {
+        "topic": "shellies/shelly1-BA67F0/relay/0/command",
+        "mode": "raw"
+      }
+    },
+    {
+      "outbound_id": "ddde5b62-e85a-4b26-bfbd-70e51c2be815",
+      "type": "mqtt_subscribes",
+      "inbound_id": "a3c8bdec-5e46-4caa-bce0-ca4ef97e1324",
+      "properties": {
+        "topic": "shellies/shelly1-BA67F0/relay/0",
+        "mode": "raw"
+      }
+    },
+    {
+      "outbound_id": "a30dfda5-40bc-484d-824e-fe73519d9c04",
+      "type": "mqtt_publishes",
+      "inbound_id": "ddde5b62-e85a-4b26-bfbd-70e51c2be815",
+      "properties": {
+        "topic": "shellies/shelly1-BA66B4/relay/0/command",
+        "mode": "raw"
+      }
+    },
+    {
+      "outbound_id": "ddde5b62-e85a-4b26-bfbd-70e51c2be815",
+      "type": "mqtt_subscribes",
+      "inbound_id": "ded13f78-1ac6-43ad-a3ee-95eaa0c4bbe5",
+      "properties": {
+        "topic": "shellies/shelly1-BA66B4/relay/0",
+        "mode": "raw"
+      }
+    }
+  ]
+}

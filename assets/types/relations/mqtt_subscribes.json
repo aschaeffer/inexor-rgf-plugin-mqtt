@@ -1,0 +1,11 @@
+{
+  "name": "mqtt_subscribes",
+  "description": "Receives and extracts packages from a topic",
+  "outbound_type": "mqtt_broker",
+  "inbound_type": "mqtt_subscriber",
+  "components": [
+    "mqtt_topic"
+  ],
+  "properties": [
+  ]
+}
