@@ -46,7 +46,7 @@ impl Plugin for MqttPluginImpl {
     }
 
     fn pre_shutdown(&self) -> Result<(), PluginError> {
-        debug!("MqttPluginModuleImpl::shutdown()");
+        debug!("MqttPluginModuleImpl::pre_shutdown()");
         Ok(())
     }
 
