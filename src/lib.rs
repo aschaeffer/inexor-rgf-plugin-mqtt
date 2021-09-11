@@ -3,7 +3,6 @@ extern crate query_interface;
 
 use std::sync::Arc;
 
-use inexor_rgf_core_behaviour as core_behaviour;
 use inexor_rgf_core_model as model;
 use inexor_rgf_core_plugins as plugins;
 use inexor_rgf_core_reactive as reactive;

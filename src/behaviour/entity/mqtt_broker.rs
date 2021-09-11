@@ -2,9 +2,8 @@ use std::convert::AsRef;
 use std::sync::Arc;
 use std::time::Duration;
 
-// use rumqttc_async_std::{MqttOptions, AsyncClient, QoS, Client, ConnectionError, Event, Transport};
+use crate::reactive::BehaviourCreationError;
 use async_std::task;
-use inexor_rgf_core_behaviour::BehaviourCreationError;
 use log::{debug, error, trace};
 use rumqttc::Packet::Publish;
 use rumqttc::{Client, ConnectionError, Event, MqttOptions, QoS};
