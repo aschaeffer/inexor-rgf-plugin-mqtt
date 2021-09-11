@@ -9,14 +9,11 @@ use inexor_rgf_core_reactive as reactive;
 use log::error;
 use waiter_di::{profiles, Container, Provider};
 
-use properties::*;
-
 use crate::plugin::MqttPlugin;
 use crate::plugins::{Plugin, PluginError};
 
 pub mod behaviour;
 pub mod plugin;
-pub mod properties;
 pub mod provider;
 
 pub fn get<T>() -> Container<T> {

@@ -9,12 +9,13 @@ use rumqttc::Packet::Publish;
 use rumqttc::{Client, ConnectionError, Event, MqttOptions, QoS};
 use serde_json::{json, Error, Value};
 
+use crate::behaviour::components::{
+    MqttEndpointProperties, MqttPayload, MqttPayloadMode, MqttTopicProperties,
+};
+use crate::behaviour::entity::MqttBrokerProperties;
 use crate::model::PropertyInstanceGetter;
 use crate::model::ReactiveEntityInstance;
 use crate::reactive::entity::Disconnectable;
-use crate::{
-    MqttBrokerProperties, MqttEndpointProperties, MqttPayload, MqttPayloadMode, MqttTopicProperties,
-};
 
 /// MQTT Broker
 pub struct MqttBroker {

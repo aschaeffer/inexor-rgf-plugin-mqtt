@@ -4,10 +4,11 @@ use std::sync::Arc;
 use log::debug;
 use serde_json::{json, Value};
 
+use crate::behaviour::components::{MqttEndpointProperties, MqttTopicProperties};
+use crate::behaviour::entity::MqttBrokerProperties;
 use crate::model::PropertyInstanceGetter;
 use crate::model::ReactiveRelationInstance;
 use crate::reactive::entity::Disconnectable;
-use crate::{MqttBrokerProperties, MqttEndpointProperties, MqttTopicProperties};
 
 /// MQTT Publisher
 pub struct MqttPublishes {
