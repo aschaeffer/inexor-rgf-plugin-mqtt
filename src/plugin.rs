@@ -6,9 +6,11 @@ use waiter_di::*;
 
 use crate::behaviour::entity::entity_behaviour_provider::MqttEntityBehaviourProviderImpl;
 use crate::behaviour::relation::relation_behaviour_provider::MqttRelationBehaviourProviderImpl;
+use crate::plugins::plugin::PluginMetadata;
 use crate::plugins::{
-    ComponentProvider, EntityBehaviourProvider, EntityTypeProvider, FlowProvider, Plugin,
-    PluginError, RelationBehaviourProvider, RelationTypeProvider, WebResourceProvider,
+    ComponentBehaviourProvider, ComponentProvider, EntityBehaviourProvider, EntityTypeProvider,
+    FlowProvider, Plugin, PluginError, RelationBehaviourProvider, RelationTypeProvider,
+    WebResourceProvider,
 };
 use crate::provider::{
     MqttComponentProviderImpl, MqttEntityTypeProviderImpl, MqttFlowProviderImpl,
@@ -35,6 +37,14 @@ interfaces!(MqttPluginImpl: dyn Plugin);
 impl MqttPlugin for MqttPluginImpl {}
 
 impl Plugin for MqttPluginImpl {
+    fn metadata(&self) -> Result<PluginMetadata, PluginError> {
+        Ok(PluginMetadata {
+            name: env!("CARGO_PKG_NAME").into(),
+            description: env!("CARGO_PKG_DESCRIPTION").into(),
+            version: env!("CARGO_PKG_VERSION").into(),
+        })
+    }
+
     fn init(&self) -> Result<(), PluginError> {
         debug!("MqttPluginModuleImpl::init()");
         Ok(())
@@ -83,6 +93,12 @@ impl Plugin for MqttPluginImpl {
             return Err(PluginError::NoRelationTypeProvider);
         }
         Ok(relation_type_provider.unwrap())
+    }
+
+    fn get_component_behaviour_provider(
+        &self,
+    ) -> Result<Arc<dyn ComponentBehaviourProvider>, PluginError> {
+        Err(PluginError::NoComponentBehaviourProvider)
     }
 
     fn get_entity_behaviour_provider(
