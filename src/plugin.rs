@@ -8,7 +8,7 @@ use crate::behaviour::entity::entity_behaviour_provider::MqttEntityBehaviourProv
 use crate::behaviour::relation::relation_behaviour_provider::MqttRelationBehaviourProviderImpl;
 use crate::plugins::{
     ComponentProvider, EntityBehaviourProvider, EntityTypeProvider, FlowProvider, Plugin,
-    PluginError, RelationBehaviourProvider, RelationTypeProvider,
+    PluginError, RelationBehaviourProvider, RelationTypeProvider, WebResourceProvider,
 };
 use crate::provider::{
     MqttComponentProviderImpl, MqttEntityTypeProviderImpl, MqttFlowProviderImpl,
@@ -117,5 +117,9 @@ impl Plugin for MqttPluginImpl {
             return Err(PluginError::NoFlowProvider);
         }
         Ok(flow_provider.unwrap())
+    }
+
+    fn get_web_resource_provider(&self) -> Result<Arc<dyn WebResourceProvider>, PluginError> {
+        Err(PluginError::NoWebResourceProvider)
     }
 }
