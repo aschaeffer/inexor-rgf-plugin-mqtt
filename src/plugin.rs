@@ -7,6 +7,7 @@ use waiter_di::*;
 use crate::behaviour::entity::entity_behaviour_provider::MqttEntityBehaviourProviderImpl;
 use crate::behaviour::relation::relation_behaviour_provider::MqttRelationBehaviourProviderImpl;
 use crate::plugins::plugin::PluginMetadata;
+use crate::plugins::plugin_context::PluginContext;
 use crate::plugins::{
     ComponentBehaviourProvider, ComponentProvider, EntityBehaviourProvider, EntityTypeProvider,
     FlowProvider, Plugin, PluginError, RelationBehaviourProvider, RelationTypeProvider,
@@ -16,6 +17,14 @@ use crate::provider::{
     MqttComponentProviderImpl, MqttEntityTypeProviderImpl, MqttFlowProviderImpl,
     MqttRelationTypeProviderImpl,
 };
+
+#[wrapper]
+pub struct PluginContextContainer(Option<std::sync::Arc<dyn PluginContext>>);
+
+#[provides]
+fn create_empty_plugin_context_container() -> PluginContextContainer {
+    return PluginContextContainer(None);
+}
 
 #[async_trait]
 pub trait MqttPlugin: Plugin + Send + Sync {}
@@ -28,6 +37,8 @@ pub struct MqttPluginImpl {
     flow_provider: Wrc<MqttFlowProviderImpl>,
     entity_behaviour_provider: Wrc<MqttEntityBehaviourProviderImpl>,
     relation_behaviour_provider: Wrc<MqttRelationBehaviourProviderImpl>,
+
+    context: PluginContextContainer,
 }
 
 interfaces!(MqttPluginImpl: dyn Plugin);
@@ -62,6 +73,11 @@ impl Plugin for MqttPluginImpl {
 
     fn shutdown(&self) -> Result<(), PluginError> {
         debug!("MqttPluginModuleImpl::shutdown()");
+        Ok(())
+    }
+
+    fn set_context(&mut self, context: Arc<dyn PluginContext>) -> Result<(), PluginError> {
+        self.context = PluginContextContainer(Some(context));
         Ok(())
     }
 
