@@ -43,3 +43,9 @@ impl From<MqttBrokerProperties> for NamedProperty {
         }
     }
 }
+
+impl From<MqttBrokerProperties> for String {
+    fn from(p: MqttBrokerProperties) -> Self {
+        p.to_string()
+    }
+}
