@@ -1,11 +1,12 @@
-use std::sync::Arc;
+use std::sync::{Arc, RwLock};
 
 use async_trait::async_trait;
-use log::debug;
+use log::{debug, error};
 use waiter_di::*;
 
 use crate::behaviour::entity::entity_behaviour_provider::MqttEntityBehaviourProviderImpl;
 use crate::behaviour::relation::relation_behaviour_provider::MqttRelationBehaviourProviderImpl;
+use crate::builder::EntityInstanceBuilder;
 use crate::plugins::plugin::PluginMetadata;
 use crate::plugins::plugin_context::PluginContext;
 use crate::plugins::{
@@ -17,13 +18,14 @@ use crate::provider::{
     MqttComponentProviderImpl, MqttEntityTypeProviderImpl, MqttFlowProviderImpl,
     MqttRelationTypeProviderImpl,
 };
+use serde_json::json;
 
 #[wrapper]
-pub struct PluginContextContainer(Option<std::sync::Arc<dyn PluginContext>>);
+pub struct PluginContextContainer(RwLock<Option<std::sync::Arc<dyn PluginContext>>>);
 
 #[provides]
 fn create_empty_plugin_context_container() -> PluginContextContainer {
-    return PluginContextContainer(None);
+    return PluginContextContainer(RwLock::new(None));
 }
 
 #[async_trait]
@@ -63,6 +65,27 @@ impl Plugin for MqttPluginImpl {
 
     fn post_init(&self) -> Result<(), PluginError> {
         debug!("MqttPluginModuleImpl::post_init()");
+        let reader = self.context.0.read().unwrap();
+        let entity_instance_manager = reader
+            .as_ref()
+            .unwrap()
+            .get_entity_instance_manager()
+            .clone();
+        let entity_instance = EntityInstanceBuilder::new("value")
+            .property("value", json!(0))
+            .get();
+        let reactive_entity_instance = entity_instance_manager.create(entity_instance);
+        match reactive_entity_instance {
+            Ok(reactive_entity_instance) => {
+                debug!(
+                    "Successfully created entity instance {}",
+                    reactive_entity_instance.id
+                );
+            }
+            Err(_) => {
+                error!("Failed to create entity instance!");
+            }
+        }
         Ok(())
     }
 
@@ -76,8 +99,8 @@ impl Plugin for MqttPluginImpl {
         Ok(())
     }
 
-    fn set_context(&mut self, context: Arc<dyn PluginContext>) -> Result<(), PluginError> {
-        self.context = PluginContextContainer(Some(context));
+    fn set_context(&self, context: Arc<dyn PluginContext>) -> Result<(), PluginError> {
+        self.context.0.write().unwrap().replace(context);
         Ok(())
     }
 
