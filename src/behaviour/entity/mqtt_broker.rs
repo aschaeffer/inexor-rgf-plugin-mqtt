@@ -17,7 +17,6 @@ use crate::model::PropertyInstanceGetter;
 use crate::model::ReactiveEntityInstance;
 use crate::reactive::entity::Disconnectable;
 
-/// MQTT Broker
 pub struct MqttBroker {
     pub entity: Arc<ReactiveEntityInstance>,
 
