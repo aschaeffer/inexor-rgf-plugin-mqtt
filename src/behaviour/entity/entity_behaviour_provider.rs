@@ -9,6 +9,8 @@ use crate::behaviour::entity::mqtt_broker::MqttBroker;
 use crate::model::ReactiveEntityInstance;
 use crate::plugins::EntityBehaviourProvider;
 
+const MQTT_BROKER: &'static str = "mqtt_broker";
+
 #[wrapper]
 pub struct MqttBrokerStorage(
     std::sync::RwLock<std::collections::HashMap<Uuid, std::sync::Arc<MqttBroker>>>,
@@ -54,7 +56,7 @@ impl MqttEntityBehaviourProvider for MqttEntityBehaviourProviderImpl {
         if broker.is_ok() {
             let broker = Arc::new(broker.unwrap());
             self.mqtt_brokers.0.write().unwrap().insert(id, broker);
-            debug!("Added behaviour mqtt_brokers to entity instance {}", id);
+            debug!("Added behaviour {} to entity instance {}", MQTT_BROKER, id);
         }
     }
 
@@ -65,15 +67,18 @@ impl MqttEntityBehaviourProvider for MqttEntityBehaviourProviderImpl {
             .unwrap()
             .remove(&entity_instance.id);
         debug!(
-            "Removed behaviour mqtt_publisher to entity instance {}",
-            entity_instance.id
+            "Removed behaviour {} from entity instance {}",
+            MQTT_BROKER, entity_instance.id
         );
     }
 
     fn remove_by_id(&self, id: Uuid) {
         if self.mqtt_brokers.0.write().unwrap().contains_key(&id) {
             self.mqtt_brokers.0.write().unwrap().remove(&id);
-            debug!("Added behaviour mqtt_broker to entity instance {}", id);
+            debug!(
+                "Removed behaviour {} from entity instance {}",
+                MQTT_BROKER, id
+            );
         }
     }
 }
@@ -81,16 +86,14 @@ impl MqttEntityBehaviourProvider for MqttEntityBehaviourProviderImpl {
 impl EntityBehaviourProvider for MqttEntityBehaviourProviderImpl {
     fn add_behaviours(&self, entity_instance: Arc<ReactiveEntityInstance>) {
         match entity_instance.clone().type_name.as_str() {
-            // TODO: Use constants: EntityType::TYPE_NAME
-            "mqtt_broker" => self.create_broker(entity_instance),
+            MQTT_BROKER => self.create_broker(entity_instance),
             _ => {}
         }
     }
 
     fn remove_behaviours(&self, entity_instance: Arc<ReactiveEntityInstance>) {
         match entity_instance.clone().type_name.as_str() {
-            // TODO: Use constants: EntityType::TYPE_NAME
-            "mqtt_broker" => self.remove_broker(entity_instance),
+            MQTT_BROKER => self.remove_broker(entity_instance),
             _ => {}
         }
     }
