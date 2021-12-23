@@ -44,29 +44,39 @@ This plugin provides the type system, interfaces and services for the MQTT proto
 
 #### Type System
 
-<img src="https://raw.githubusercontent.com/aschaeffer/inexor-rgf-plugin-mqtt/main/docs/images/type_system.png">
+<img src="https://raw.githubusercontent.com/aschaeffer/inexor-rgf-plugin-mqtt/main/docs/images/type_system.png" alt="Visualisation of the graph type system">
 
 #### Components
 
-| Name | Description | Properties |
-| --- | --- | --- |
-| mqtt_endpoint | | payload |
-| mqtt_topic | | topic<br>mode |
+| Name          | Description | Properties    |
+|---------------|-------------|---------------|
+| mqtt_endpoint |             | payload       |
+| mqtt_topic    |             | topic<br>mode |
 
 #### Entity Types
 
-| Name | Description | Components | Properties |
-| --- | --- | --- | --- |
-| mqtt_broker | | | hostname<br>port<br>send_package<br>received_package |
-| mqtt_publisher | | mqtt_endpoint | payload |
-| mqtt_subscriber | | mqtt_endpoint | payload |
+| Name            | Description | Components    | Properties                                           |
+|-----------------|-------------|---------------|------------------------------------------------------|
+| mqtt_broker     |             |               | hostname<br>port<br>send_package<br>received_package |
+| mqtt_publisher  |             | mqtt_endpoint | payload                                              |
+| mqtt_subscriber |             | mqtt_endpoint | payload                                              |
 
 #### Relation Types
 
-| Name | Description | Components | Source Entity Type | Target Entity Type |
-| --- | --- | --- | --- | --- |
-| mqtt_publishes | | mqtt_topic | mqtt_publisher | mqtt_broker |
-| mqtt_subscribes | | mqtt_topic | mqtt_broker | mqtt_subscriber |
+| Name            | Description | Components   | Source Entity Type | Target Entity Type |
+|-----------------|-------------|--------------|--------------------|--------------------|
+| mqtt_publishes  |             | mqtt_topic   | mqtt_publisher     | mqtt_broker        |
+| mqtt_subscribes |             | mqtt_topic   | mqtt_broker        | mqtt_subscriber    |
+
+#### Instance System
+
+<img src="https://raw.githubusercontent.com/aschaeffer/inexor-rgf-plugin-mqtt/main/docs/images/mqtt_broker_subscriber_and_publisher.png" alt="Visualisation of the graph instance system">
+
+This is the graph representation of a publish/subscribe interaction with an MQTT-Broker. Multiple MQTT-Brokers can exist.
+
+* Multiple `mqtt_publisher`s are `mqtt_publishes` to a topic on the `mqtt_broker`. A user can write into the `payload` property of a `mqtt_publisher` in order to publish a message.
+* Multiple `mqtt_subscriber`s are `mqtt_subscribes` a topic on the `mqtt_broker`. A user can read from the `payload` property of a `mqtt_subscriber` in order to receive a new message.
+* The MQTT topic is configured *on the relationships* (`mqtt_publishes`, `mqtt_subscribes`)
 
 ### Thanks to
 
@@ -75,6 +85,6 @@ This plugin provides the type system, interfaces and services for the MQTT proto
 
 ### Sponsors
 
-| | | |
-| --- | --- | --- |
+|                                                                                                                                                                                                                               |           |                                                                   |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|-------------------------------------------------------------------|
 | <a href="https://www.jetbrains.com/?from=github.com/inexorgame"><img align="right" width="100" height="100" src="https://raw.githubusercontent.com/aschaeffer/inexor-rgf-plugin-logical/main/docs/images/icon_CLion.svg"></a> | JetBrains | Special thanks to JetBrains for providing us with CLion licenses! |
