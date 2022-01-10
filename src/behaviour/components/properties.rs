@@ -1,10 +1,10 @@
 use indradb::NamedProperty;
 use serde_json::{json, Value};
-use strum_macros::{AsRefStr, IntoStaticStr, ToString};
+use strum_macros::{AsRefStr, Display, IntoStaticStr};
 
 use crate::reactive::property::NamedProperties;
 
-#[derive(Copy, Clone, AsRefStr, IntoStaticStr, ToString)]
+#[derive(Copy, Clone, AsRefStr, IntoStaticStr, Display)]
 pub enum MqttPayloadMode {
     Json,
     Raw,
@@ -35,7 +35,7 @@ impl ToString for MqttPayload {
 }
 
 #[allow(non_camel_case_types)]
-#[derive(AsRefStr, IntoStaticStr, ToString)]
+#[derive(AsRefStr, IntoStaticStr, Display)]
 pub enum MqttTopicProperties {
     #[strum(serialize = "topic")]
     TOPIC,
@@ -68,7 +68,7 @@ impl From<MqttTopicProperties> for NamedProperty {
 }
 
 #[allow(non_camel_case_types)]
-#[derive(AsRefStr, IntoStaticStr, ToString)]
+#[derive(AsRefStr, IntoStaticStr, Display)]
 pub enum MqttEndpointProperties {
     #[strum(serialize = "payload")]
     PAYLOAD,
