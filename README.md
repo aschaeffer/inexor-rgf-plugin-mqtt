@@ -42,6 +42,14 @@ This plugin provides the type system, interfaces and services for the MQTT proto
 [<img src="https://img.shields.io/github/license/aschaeffer/inexor-rgf-plugin-mqtt">](https://github.com/aschaeffer/inexor-rgf-plugin-mqtt/blob/main/LICENSE)
 [<img src="https://img.shields.io/discord/698219248954376256?logo=discord">](https://discord.com/invite/acUW8k7)
 
+#### Platform Compatibility
+
+| Platform | Compatibility |
+|----------|---------------|
+| Linux    | ✓             |
+| MacOS    | (✓)           |
+| Windows  | (✓)           |
+
 #### Type System
 
 <img src="https://raw.githubusercontent.com/aschaeffer/inexor-rgf-plugin-mqtt/main/docs/images/type_system.png" alt="Visualisation of the graph type system">
