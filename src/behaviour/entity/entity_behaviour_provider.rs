@@ -30,7 +30,6 @@ pub trait MqttEntityBehaviourProvider: EntityBehaviourProvider + Send + Sync {
     fn remove_by_id(&self, id: Uuid);
 }
 
-// #[derive(Clone)]
 pub struct MqttEntityBehaviourProviderImpl {
     mqtt_brokers: MqttBrokerStorage,
 }
