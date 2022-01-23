@@ -1,8 +1,8 @@
 # Inexor Reactive Graph Flow
 
-| Project | Module | Sub-Module | Functionality | Tests |
-| --- | --- | --- | --- | --- |
-| Reactive Graph Flow | Plugin | MQTT | <img src="https://img.shields.io/badge/state-completed-brightgreen"> | [<img src="https://img.shields.io/codecov/c/github/aschaeffer/inexor-rgf-plugin-mqtt">](https://app.codecov.io/gh/aschaeffer/inexor-rgf-plugin-mqtt) |
+| Project             | Module | Sub-Module | Functionality                                                        | Tests                                                                                                                                                |
+|---------------------|--------|------------|----------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Reactive Graph Flow | Plugin | MQTT       | <img src="https://img.shields.io/badge/state-completed-brightgreen"> | [<img src="https://img.shields.io/codecov/c/github/aschaeffer/inexor-rgf-plugin-mqtt">](https://app.codecov.io/gh/aschaeffer/inexor-rgf-plugin-mqtt) |
 
 ### About Inexor
 
