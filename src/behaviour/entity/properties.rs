@@ -1,10 +1,10 @@
 use indradb::{Identifier, NamedProperty};
 use inexor_rgf_core_reactive::NamedProperties;
 use serde_json::json;
-use strum_macros::{AsRefStr, IntoStaticStr, ToString};
+use strum_macros::{AsRefStr, Display, IntoStaticStr};
 
 #[allow(non_camel_case_types)]
-#[derive(AsRefStr, IntoStaticStr, ToString)]
+#[derive(AsRefStr, IntoStaticStr, Display)]
 pub enum MqttBrokerProperties {
     #[strum(serialize = "hostname")]
     HOSTNAME,
