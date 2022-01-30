@@ -1,4 +1,4 @@
-use indradb::NamedProperty;
+use indradb::{Identifier, NamedProperty};
 use serde_json::{json, Value};
 use strum_macros::{AsRefStr, Display, IntoStaticStr};
 
@@ -61,7 +61,7 @@ impl MqttTopicProperties {
 impl From<MqttTopicProperties> for NamedProperty {
     fn from(p: MqttTopicProperties) -> Self {
         NamedProperty {
-            name: p.to_string(),
+            name: Identifier::new(p.to_string()).unwrap(),
             value: json!(p.default_value()),
         }
     }
@@ -88,7 +88,7 @@ impl MqttEndpointProperties {
 impl From<MqttEndpointProperties> for NamedProperty {
     fn from(p: MqttEndpointProperties) -> Self {
         NamedProperty {
-            name: p.to_string(),
+            name: Identifier::new(p.to_string()).unwrap(),
             value: json!(p.default_value()),
         }
     }

@@ -1,4 +1,4 @@
-use indradb::NamedProperty;
+use indradb::{Identifier, NamedProperty};
 use inexor_rgf_core_reactive::NamedProperties;
 use serde_json::json;
 use strum_macros::{AsRefStr, IntoStaticStr, ToString};
@@ -38,7 +38,7 @@ impl MqttBrokerProperties {
 impl From<MqttBrokerProperties> for NamedProperty {
     fn from(p: MqttBrokerProperties) -> Self {
         NamedProperty {
-            name: p.to_string(),
+            name: Identifier::new(p.to_string()).unwrap(),
             value: json!(p.default_value()),
         }
     }
