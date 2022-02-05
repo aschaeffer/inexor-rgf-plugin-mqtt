@@ -1,6 +1,5 @@
 {
   "name": "Inexor GraphQL Schema",
-  "schemaPath": "schema.graphql",
   "extensions": {
     "endpoints": {
       "Default GraphQL Endpoint": {
@@ -11,5 +10,6 @@
         "introspect": true
       }
     }
-  }
+  },
+  "schemaPath": "./schema.graphql"
 }
