@@ -61,7 +61,7 @@ impl MqttBroker {
         let (mut mqtt_client, mut connection) = Client::new(mqtt_options, 10);
 
         // Subscribe all topics (the routing is done in the relationship
-        mqtt_client.subscribe("#", QoS::AtMostOnce);
+        let _ = mqtt_client.subscribe("#", QoS::AtMostOnce);
 
         let mut mqtt_client_publisher = mqtt_client.clone();
 
@@ -191,7 +191,7 @@ impl MqttBroker {
                     Err(_) => std::thread::sleep(Duration::from_millis(100)),
                 }
             }
-            mqtt_client_subscriber.disconnect();
+            let _ = mqtt_client_subscriber.disconnect();
             debug!(
                 "Disconnected client connection to MQTT broker {}:{}",
                 hostname.clone(),
@@ -214,7 +214,7 @@ impl MqttBroker {
 impl Disconnectable for MqttBroker {
     fn disconnect(&self) {
         // Stop event loop thread
-        self.stopper.send(());
+        let _ = self.stopper.send(());
         debug!("Disconnecting mqtt broker {}", self.handle_id);
         let property = self
             .entity
