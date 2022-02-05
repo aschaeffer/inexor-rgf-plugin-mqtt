@@ -1,9 +1,9 @@
 use std::sync::Arc;
 
+use crate::di::*;
 use async_trait::async_trait;
 use indradb::EdgeKey;
 use log::debug;
-use waiter_di::*;
 
 use crate::behaviour::relation::mqtt_publishes::MqttPublishes;
 use crate::behaviour::relation::mqtt_subscribes::MqttSubscribes;
@@ -24,12 +24,12 @@ pub struct MqttSubscribesRelationBehaviourStorage(
     std::sync::RwLock<std::collections::HashMap<EdgeKey, std::sync::Arc<MqttSubscribes>>>,
 );
 
-#[waiter_di::provides]
+#[provides]
 fn create_mqtt_publishes_relation_behaviour_storage() -> MqttPublishesRelationBehaviourStorage {
     MqttPublishesRelationBehaviourStorage(std::sync::RwLock::new(std::collections::HashMap::new()))
 }
 
-#[waiter_di::provides]
+#[provides]
 fn create_mqtt_subscribes_relation_behaviour_storage() -> MqttSubscribesRelationBehaviourStorage {
     MqttSubscribesRelationBehaviourStorage(std::sync::RwLock::new(std::collections::HashMap::new()))
 }

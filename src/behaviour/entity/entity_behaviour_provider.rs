@@ -1,9 +1,9 @@
 use std::sync::Arc;
 
+use crate::di::*;
 use async_trait::async_trait;
 use log::debug;
 use uuid::Uuid;
-use waiter_di::*;
 
 use crate::behaviour::entity::mqtt_broker::MqttBroker;
 use crate::model::ReactiveEntityInstance;
@@ -16,7 +16,7 @@ pub struct MqttBrokerStorage(
     std::sync::RwLock<std::collections::HashMap<Uuid, std::sync::Arc<MqttBroker>>>,
 );
 
-#[waiter_di::provides]
+#[provides]
 fn create_mqtt_brokers_storage() -> MqttBrokerStorage {
     MqttBrokerStorage(std::sync::RwLock::new(std::collections::HashMap::new()))
 }

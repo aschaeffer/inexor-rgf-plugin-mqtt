@@ -1,8 +1,8 @@
 use std::sync::{Arc, RwLock};
 
+use crate::di::*;
 use async_trait::async_trait;
 use log::{debug, error};
-use waiter_di::*;
 
 use crate::behaviour::entity::entity_behaviour_provider::MqttEntityBehaviourProviderImpl;
 use crate::behaviour::relation::relation_behaviour_provider::MqttRelationBehaviourProviderImpl;
