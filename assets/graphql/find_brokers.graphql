@@ -1,0 +1,20 @@
+query findAllBrokers {
+  instances {
+    entities(
+      type: "mqtt_broker"
+    ) {
+      label
+      properties(names: [
+        "hostname"
+        "port"
+      ]) {
+        name
+        value
+        type {
+          socketType
+          dataType
+        }
+      }
+    }
+  }
+}

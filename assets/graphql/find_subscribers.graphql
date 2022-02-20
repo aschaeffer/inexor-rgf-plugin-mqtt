@@ -1,0 +1,16 @@
+query findAllSubscribers {
+  instances {
+    entities(
+      type: "mqtt_subscriber"
+    ) {
+      properties {
+        name
+        value
+        type {
+          dataType
+          socketType
+        }
+      }
+    }
+  }
+}

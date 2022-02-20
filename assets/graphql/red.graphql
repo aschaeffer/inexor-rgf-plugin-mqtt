@@ -2,10 +2,10 @@ mutation {
   instances {
     entities {
       update(
-        id: "60f08554-1258-4347-93d2-b05c7f9b51d7",
+        id: "60f08554-1258-4347-93d2-b05c7f9b51d7"
         properties: [
           {
-            name: "payload",
+            name: "payload"
             value: {
               mode: "color",
               red: 128,
@@ -19,8 +19,22 @@ mutation {
           }
         ]) {
         id,
-        type {name},
-        properties
+        type {
+          name
+        }
+        properties {
+          name
+          value
+          type {
+            socketType
+            dataType
+            description
+            extensions {
+              name
+              extension
+            }
+          }
+        }
       }
     }
   }

@@ -1,0 +1,48 @@
+query findAllSubscribes {
+  instances {
+    relations(
+      type: "mqtt_subscribes"
+    ) {
+      type {
+        name
+        fullName
+      }
+      outbound {
+        id
+        type {
+          name
+        }
+        properties {
+          name
+          value
+          type {
+            dataType
+            socketType
+          }
+        }
+      }
+      inbound {
+        id
+        type {
+          name
+        }
+        properties {
+          name
+          value
+          type {
+            dataType
+            socketType
+          }
+        }
+      }
+      properties {
+        name
+        value
+        type {
+          dataType
+          socketType
+        }
+      }
+    }
+  }
+}
