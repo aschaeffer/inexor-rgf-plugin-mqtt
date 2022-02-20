@@ -14,7 +14,7 @@ async-trait = "0.1"
 crossbeam = "0.8"
 indradb-lib = "3"
 log = { version = "0.4", features = ["std", "serde"] }
-log4rs = { version = "1.0", features = ["console_appender", "file_appender"]}
+log4rs = { version = "1.0", features = ["console_appender", "file_appender", "toml_format"]}
 query_interface = "0.3"
 rumqttc = "0.5"
 rust-embed = { version = "6.2", features = ["debug-embed", "compression"] }
