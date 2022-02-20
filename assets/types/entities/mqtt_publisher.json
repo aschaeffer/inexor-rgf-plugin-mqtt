@@ -3,6 +3,7 @@
   "group": "mqtt",
   "description": "Publishes to a MQTT endpoint",
   "components": [
+    "labeled",
     "mqtt_endpoint",
     "flow_2d",
     "flow_3d"

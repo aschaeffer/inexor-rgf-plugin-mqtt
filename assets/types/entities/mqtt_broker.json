@@ -3,6 +3,7 @@
   "group": "mqtt",
   "description": "MQTT Broker",
   "components": [
+    "labeled",
     "flow_2d",
     "flow_3d"
   ],

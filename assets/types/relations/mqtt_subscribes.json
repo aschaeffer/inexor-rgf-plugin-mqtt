@@ -4,6 +4,7 @@
   "outbound_type": "mqtt_broker",
   "inbound_type": "mqtt_subscriber",
   "components": [
+    "labeled",
     "mqtt_topic"
   ],
   "properties": [

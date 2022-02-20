@@ -4,6 +4,7 @@
   "outbound_type": "mqtt_publisher",
   "inbound_type": "mqtt_broker",
   "components": [
+    "labeled",
     "mqtt_topic"
   ],
   "properties": [
