@@ -76,12 +76,13 @@ impl MqttRelationBehaviourProvider for MqttRelationBehaviourProviderImpl {
             return;
         }
         let edge_key = edge_key.unwrap();
-        let mqtt_publishes = Arc::new(MqttPublishes::new(relation_instance));
+        let mqtt_publishes = Arc::new(MqttPublishes::new(relation_instance.clone()));
         self.mqtt_publishes_relation_behaviour
             .0
             .write()
             .unwrap()
             .insert(edge_key.clone(), mqtt_publishes);
+        relation_instance.add_behaviour(MQTT_PUBLISHES);
         debug!(
             "Added behaviour {} to relation instance {:?}",
             MQTT_PUBLISHES, edge_key
@@ -99,6 +100,7 @@ impl MqttRelationBehaviourProvider for MqttRelationBehaviourProviderImpl {
             .write()
             .unwrap()
             .remove(&edge_key);
+        relation_instance.remove_behaviour(MQTT_PUBLISHES);
         debug!(
             "Removed behaviour {} from relation instance {:?}",
             MQTT_PUBLISHES, edge_key
@@ -111,12 +113,13 @@ impl MqttRelationBehaviourProvider for MqttRelationBehaviourProviderImpl {
             return;
         }
         let edge_key = edge_key.unwrap();
-        let mqtt_subscribes = Arc::new(MqttSubscribes::new(relation_instance));
+        let mqtt_subscribes = Arc::new(MqttSubscribes::new(relation_instance.clone()));
         self.mqtt_subscribes_relation_behaviour
             .0
             .write()
             .unwrap()
             .insert(edge_key.clone(), mqtt_subscribes);
+        relation_instance.add_behaviour(MQTT_SUBSCRIBES);
         debug!(
             "Added behaviour {} to relation instance {:?}",
             MQTT_SUBSCRIBES, edge_key
@@ -134,6 +137,7 @@ impl MqttRelationBehaviourProvider for MqttRelationBehaviourProviderImpl {
             .write()
             .unwrap()
             .remove(&edge_key);
+        relation_instance.remove_behaviour(MQTT_SUBSCRIBES);
         debug!(
             "Removed behaviour {} from relation instance {:?}",
             MQTT_SUBSCRIBES, edge_key

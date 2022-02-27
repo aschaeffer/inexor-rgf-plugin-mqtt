@@ -51,10 +51,11 @@ impl MqttEntityBehaviourProviderImpl {
 impl MqttEntityBehaviourProvider for MqttEntityBehaviourProviderImpl {
     fn create_broker(&self, entity_instance: Arc<ReactiveEntityInstance>) {
         let id = entity_instance.id;
-        let broker = MqttBroker::new(entity_instance);
+        let broker = MqttBroker::new(entity_instance.clone());
         if broker.is_ok() {
             let broker = Arc::new(broker.unwrap());
             self.mqtt_brokers.0.write().unwrap().insert(id, broker);
+            entity_instance.add_behaviour(MQTT_BROKER);
             debug!("Added behaviour {} to entity instance {}", MQTT_BROKER, id);
         }
     }
@@ -65,6 +66,7 @@ impl MqttEntityBehaviourProvider for MqttEntityBehaviourProviderImpl {
             .write()
             .unwrap()
             .remove(&entity_instance.id);
+        entity_instance.remove_behaviour(MQTT_BROKER);
         debug!(
             "Removed behaviour {} from entity instance {}",
             MQTT_BROKER, entity_instance.id
