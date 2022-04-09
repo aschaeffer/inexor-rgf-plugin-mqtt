@@ -2,20 +2,29 @@ use std::convert::AsRef;
 use std::sync::Arc;
 use std::time::Duration;
 
-use crate::reactive::BehaviourCreationError;
 use async_std::task;
-use log::{debug, error, trace};
+use log::debug;
+use log::error;
+use log::trace;
+use rumqttc::Client;
+use rumqttc::ConnectionError;
+use rumqttc::Event;
+use rumqttc::MqttOptions;
 use rumqttc::Packet::Publish;
-use rumqttc::{Client, ConnectionError, Event, MqttOptions, QoS};
-use serde_json::{json, Error, Value};
+use rumqttc::QoS;
+use serde_json::json;
+use serde_json::Error;
+use serde_json::Value;
 
-use crate::behaviour::components::{
-    MqttEndpointProperties, MqttPayload, MqttPayloadMode, MqttTopicProperties,
-};
+use crate::behaviour::components::MqttEndpointProperties;
+use crate::behaviour::components::MqttPayload;
+use crate::behaviour::components::MqttPayloadMode;
+use crate::behaviour::components::MqttTopicProperties;
 use crate::behaviour::entity::MqttBrokerProperties;
 use crate::model::PropertyInstanceGetter;
 use crate::model::ReactiveEntityInstance;
 use crate::reactive::entity::Disconnectable;
+use crate::reactive::BehaviourCreationError;
 
 pub struct MqttBroker {
     pub entity: Arc<ReactiveEntityInstance>,

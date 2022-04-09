@@ -10,7 +10,6 @@ use crate::model::PropertyInstanceGetter;
 use crate::model::ReactiveRelationInstance;
 use crate::reactive::entity::Disconnectable;
 
-/// MQTT Publisher
 pub struct MqttPublishes {
     pub relation: Arc<ReactiveRelationInstance>,
 

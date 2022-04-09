@@ -47,7 +47,6 @@ pub trait MqttRelationBehaviourProvider: RelationBehaviourProvider + Send + Sync
     fn remove_by_key(&self, edge_key: EdgeKey);
 }
 
-// #[derive(Clone)]
 pub struct MqttRelationBehaviourProviderImpl {
     mqtt_publishes_relation_behaviour: MqttPublishesRelationBehaviourStorage,
 
